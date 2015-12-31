@@ -14,16 +14,18 @@ app.get('/', function(req, res) {
 });
 
 app.post('/post', function(req, res) {
-	var parsed_url = url.format({
+	var parsed_url = {
 		pathname: 'https://www.googleapis.com/youtube/v3/search',
 		query: {
 			part: 'snippet',
 			q: req.body.text,
-			key: 'AIzaSyCNuZi6MxSIg1awc5PlrcpR8y_88uenfeQ'
+			key: process.env.YOUTUBE_KEY
 		}
-	});
+	};
 
-	request(parsed_url, function (error, response, body) {
+	var query_url = parsed_url + '?part=' + parsed_url.query.part + '&q=' + parsed_url.query.q + '&key=' + parsed_url.query.key;
+
+	request(query_url, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			var data = JSON.parse(body);
 			var index_to_grab = Math.floor((Math.random() * 5));
