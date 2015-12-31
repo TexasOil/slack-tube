@@ -23,12 +23,12 @@ app.post('/post', function(req, res) {
 		}
 	};
 
-	var query_url = parsed_url + '?part=' + parsed_url.query.part + '&q=' + parsed_url.query.q + '&key=' + parsed_url.query.key;
+	var query_url = parsed_url.pathname + '?part=' + parsed_url.query.part + '&q=' + parsed_url.query.q + '&key=' + parsed_url.query.key;
 
 	request(query_url, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			var data = JSON.parse(body);
-			var index_to_grab = Math.floor((Math.random() * 5));
+			var index_to_grab = 0;
 			var url_snippet = data.items[index_to_grab].id.videoId;
 			var url_to_serve = 'https://www.youtube.com/watch?v=' + url_snippet;
 
