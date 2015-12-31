@@ -1,0 +1,26 @@
+{
+	"name": "slack-tube",
+	"version": "0.0.1",
+	"description": "_A slack bot that returns random youtube video_",
+	"main": "index.js",
+	"dependencies": {
+		"body-parser": "^1.14.2",
+		"ejs": "2.3.3",
+		"express": "4.13.3",
+		"request": "^2.67.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echp \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+    "type": "git",
+    "url": "git+https://github.com/TexasOil/slack-tube.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TexasOil/slack-tube/issues"
+  },
+  "homepage": "https://github.com/TexasOil/slack-tube#readme"
+}
