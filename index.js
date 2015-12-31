@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/post', function(req, res) {
-	var parsed_url = {
+	var url_base = {
 		pathname: 'https://www.googleapis.com/youtube/v3/search',
 		query: {
 			part: 'snippet',
@@ -23,7 +23,7 @@ app.post('/post', function(req, res) {
 		}
 	};
 
-	var query_url = parsed_url.pathname + '?part=' + parsed_url.query.part + '&q=' + parsed_url.query.q + '&key=' + parsed_url.query.key;
+	var query_url = url_base.pathname + '?part=' + url_base.query.part + '&q=' + url_base.query.q + '&key=' + url_base.query.key;
 
 	request(query_url, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
